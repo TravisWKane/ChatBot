@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Chat Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #007bff, #6f42c1);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 450px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+        }
+
+        .chat-log {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            scroll-behavior: smooth;
+        }
+
+        .chat-log .message {
+            max-width: 75%;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 20px;
+            position: relative;
+            font-size: 15px;
+            word-wrap: break-word;
+        }
+
+        .chat-log .user-message {
+            background-color: #007bff;
+            color: white;
+            text-align: left;
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+
+        .chat-log .jarvis-message {
+            background-color: #f1f1f1;
+            color: #333;
+            text-align: left;
+            margin-right: auto;
+            border-bottom-left-radius: 0;
+        }
+
+        .chat-input {
+            padding: 10px;
+            display: flex;
+            border-top: 1px solid #ddd;
+            background-color: #f4f4f4;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .chat-input button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .chat-input button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Jarvis' Web Interface</h1>
+    </header>
+
+    <div class="chat-container">
+        <div class="chat-log" id="chat-log">
+            <!-- Messages will be appended here dynamically -->
+        </div>
+
+        <form class="chat-input" id="chat-form">
+            <input type="text" id="message-input" name="message" placeholder="Type a message..." required autofocus>
+            <button type="submit">Send</button>
+        </form>
+
+    </div>
+
+    <script>
+        // Function to submit the form via Ajax and update the chat log
+document.getElementById('chat-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var messageInput = document.getElementById('message-input');
+    var message = messageInput.value;
+
+    if (message.trim() === '') return;  // Do nothing if the message is empty
+
+    // Log the message for debugging
+    console.log('Sending message:', message);
+
+    // Make an AJAX request to submit the message
+    fetch('/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => {
+        // Log the raw response for debugging
+        console.log('Raw response:', response);
+        return response.json();
+    })
+    .then(data => {
+        // Log the received data
+        console.log('Data received from server:', data);
+
+        var chatLog = document.getElementById('chat-log');
+
+        // Add the user's message to the log
+        var userMessage = document.createElement('p');
+        userMessage.classList.add('message', 'user-message');
+        userMessage.textContent = message;
+        chatLog.appendChild(userMessage);
+
+        // Add Jarvis's response to the log
+        var jarvisMessage = document.createElement('p');
+        jarvisMessage.classList.add('message', 'jarvis-message');
+
+        // Handle newlines in the response: replace \n with <br> for proper display
+        jarvisMessage.innerHTML = data.response.replace(/\n/g, '<br>');
+        chatLog.appendChild(jarvisMessage);
+
+        // Clear the input field
+        messageInput.value = '';
+
+        // Scroll chat log to the bottom
+        chatLog.scrollTop = chatLog.scrollHeight;
+    })
+    .catch(error => {
+        console.error('Error in fetching response:', error);
+    });
+});
+    </script>
+</body>
+</html>
