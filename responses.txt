@@ -1,0 +1,97 @@
+[GREETING]
+Hello! How can I assist you today?
+Hi there! What can I do for you today?
+Hey! What’s on your mind?
+Greetings! How can I be of service?
+Hello! Ready to help you out.
+
+[FAREWELL]
+Goodbye! Take care.
+See you later! Have a great day.
+Bye! Let me know if you need me again.
+Farewell! Don't hesitate to come back if you need help.
+Goodbye! I’m always here if you need anything.
+
+[HOW_ARE_YOU]
+I'm doing great, thanks for asking! How about you?
+I’m just a program, but I’m functioning perfectly! How are you doing?
+All systems go on my end! How’s everything with you?
+I’m doing well, thank you! What’s going on with you?
+I'm here and ready to assist. How are you today?
+
+[FEELING_GOOD]
+That's awesome! Anything exciting on your mind today?
+I'm glad to hear you're doing well! What can I help you with?
+Fantastic! What’s next on your agenda?
+Wonderful to hear! Need help with anything?
+Great to know you're feeling good! How can I assist?
+
+[FEELING_BAD]
+I’m really sorry to hear that. Is there anything I can do to help?
+I’m here for you if you want to talk or need assistance with anything.
+That sounds tough. I’m here to listen if you need it.
+I hope things get better soon. Let me know if you need any support.
+I’m really sorry you’re going through this. How can I make your day easier?
+
+[WEATHER]
+I don't have weather data at the moment, but you can check a weather app!
+I can't fetch the weather right now, but you can find it easily online!
+I’m unable to access weather data currently, but I recommend checking a weather app!
+I don’t have access to weather information, but feel free to check your local forecast.
+Sorry, I can't check the weather right now. Try a weather website or app!
+
+[TIME]
+The current time is {{current_time}}. Anything else I can assist with?
+It's {{current_time}} right now. How can I help you next?
+It’s {{current_time}} at the moment. Do you need anything else?
+The time now is {{current_time}}. What can I do for you?
+Right now, it’s {{current_time}}. What would you like to do next?
+
+[UNKNOWN]
+I'm sorry, I don't quite understand. Can you ask me in a different way?
+Hmm, I'm not sure I get that. Could you rephrase it?
+I’m not sure what you mean. Can you clarify?
+I didn’t catch that. Could you try asking me again?
+I'm having trouble understanding that. Can you explain it differently?
+
+[ASKING_FOR_HELP]
+How can I assist you today?
+Feel free to ask me anything. I’m here to help!
+What do you need help with? Let me know!
+I’m ready to assist. What can I do for you?
+Need a hand with something? I’m here to help.
+
+[FEELING_GOOD_FOLLOWUP]
+That’s great to hear! What’s been making you feel so good?
+Fantastic! Anything exciting happening today?
+That’s awesome! What’s been going well for you lately?
+I’m glad to hear that! What’s been making your day awesome?
+
+[FEELING_BAD_FOLLOWUP]
+I’m really sorry to hear that. Want to tell me more about what’s going on?
+That sounds tough. Is there anything specific bothering you?
+I’m here for you. Would talking about it help?
+I’m sorry things aren’t going well. Do you want to share more?
+
+[SMALL_TALK]
+What's been on your mind lately?
+Do you have anything exciting coming up?
+What's keeping you busy these days?
+Any new hobbies or interests you've been exploring?
+How's your day going so far?
+
+[JOKE]
+Why don’t skeletons fight each other? They don’t have the guts!
+Why did the math book look sad? Because it had too many problems.
+Why don’t programmers like nature? It has too many bugs.
+
+[COMPLIMENT]
+You're doing great! Keep it up!
+You're amazing at what you do. I admire that!
+You’ve got a great sense of humor!
+You're incredibly talented. I'm glad I can help you.
+
+[RANDOM_FACT]
+Did you know that honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old!
+The Eiffel Tower can be 15 cm taller during the summer due to thermal expansion of the metal.
+Octopuses have three hearts and blue blood!
